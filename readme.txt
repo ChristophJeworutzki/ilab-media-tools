@@ -5,7 +5,7 @@ Requires at least: 4.9
 Tested up to: 6.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Stable tag: 4.5.3
+Stable tag: 4.5.10
 Requires PHP: 7.4
 
 Automatically store media on Amazon S3, Cloudflare R2, Google Cloud Storage, DigitalOcean Spaces + others. Serve CSS/JS assets through CDNs.  Integrate with Imgix.
@@ -104,6 +104,40 @@ Imgix is a content delivery network with a twist.  In addition to distributing y
 
 
 == Changelog ==
+
+= 4.5.10 - 11/09/2022 =
+
+* Fix for broken Crop, Edit Image and Replace Image buttons in the media library.
+* Fix for issue with image URLs
+
+= 4.5.9 - 11/08/2022 =
+
+* Fixed a bug with the AWS SDK with DigitalOcean that resulted in urls missing the scheme (eg the https:// part).  This
+  bug seems to be with the AWS SDK MultiRegionClient and not with Media Cloud.
+* Fixed another AWS SDK MultiRegionClient bug where the path style endpoint setting was being ignored.
+
+= 4.5.7 - 11/07/2022 =
+
+* Fixed internal help links
+* Updated support links (bye bye Freshdesk!)
+
+= 4.5.6 - 11/04/2022 =
+
+* (Premium) Integration for Fluent Forms plugin.  Offload image and file uploads to cloud storage.
+* (Premium) Integration for Fluent Support plugin.  Offloads ticket attachments to cloud storage.
+
+= 4.5.5 - 10/31/2022 =
+
+* Admin notices are now only shown to users with the `manage_options` capability.
+* (Premium) Direct Uploads for Cloudflare R2 has been implemented.  **IMPORTANT**: You must set up CORS on your bucket
+  and that process is mildly convoluted.  Please see this video tutorial for more information:  https://www.youtube.com/watch?v=7_4Q0WQVNUI
+
+= 4.5.4 - 10/29/2022 =
+
+* Fix for assets tool in push mode
+* Added option for assets tool in pull mode to process rendered page to force assets to be pulled from CDN for scripts
+  and styles that are included on the page in non-standard ways
+* New assets tool tutorial: https://www.youtube.com/watch?v=lYHHjO27tng
 
 = 4.5.3 - 10/15/2022 =
 
@@ -642,7 +676,7 @@ Imgix is a content delivery network with a twist.  In addition to distributing y
 * Fix for wizard when activating network.
 * Improved compatibility with front-end uploads
 * Tasks that make significant changes to your site now prompt you to remind you to backup your database first
-* + 48 other fixes and performance improvements
+* +48 other fixes and performance improvements
 
 
 = 3.3.23 =
