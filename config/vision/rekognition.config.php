@@ -10,8 +10,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
-if (!defined('ABSPATH')) { header('Location: /'); die; }
-
+if (!defined('ABSPATH')) {
+    header('Location: /');
+    die;
+}
 
 return [
     "mcloud-vision-provider-settings" => [
@@ -30,13 +32,13 @@ return [
                 "display-order" => 1,
                 "type" => "password",
             ],
-	        "mcloud-storage-s3-use-credential-provider" => [
-		        "title" => "Use Credential Provider",
-		        "description" => "When this is enabled, Media Cloud will load your S3 credentials from the environment, <code> ~/.aws/credentials</code> or <code>~/.aws/config</code>.  When this is enabled, the <strong>Access Key</strong> and <strong>Secret</strong> values specified in these settings will be ignored.  This is an advanced option and <strong>should only be enabled if you know what you are doing.</strong>",
-		        "display-order" => 1,
-		        "type" => "checkbox",
-		        "default" => false,
-	        ],
+            "mcloud-storage-s3-use-credential-provider" => [
+                "title" => "Use Credential Provider",
+                "description" => "When this is enabled, Media Cloud will load your S3 credentials from the environment, <code> ~/.aws/credentials</code> or <code>~/.aws/config</code>.  When this is enabled, the <strong>Access Key</strong> and <strong>Secret</strong> values specified in these settings will be ignored.  This is an advanced option and <strong>should only be enabled if you know what you are doing.</strong>",
+                "display-order" => 1,
+                "type" => "checkbox",
+                "default" => false,
+            ],
             "mcloud-storage-s3-bucket" => [
                 "title" => "Bucket",
                 "description" => "The bucket you wish to store your media in.  Must not be blank.",
@@ -61,8 +63,8 @@ return [
                     'ap-northeast-1' => 'Asia Pacific (Tokyo)',
                     'eu-central-1' => 'EU (Frankfurt)',
                     'eu-west-1' => 'EU (Ireland)',
-	                'eu-west-2' => 'EU (London)',
-	                'us-gov-west-1' => 'AWS GovCloud (US)',
+                    'eu-west-2' => 'EU (London)',
+                    'us-gov-west-1' => 'AWS GovCloud (US)',
                 ],
             ],
         ]
@@ -71,51 +73,51 @@ return [
         "title" => "Vision Options",
         "dynamic" => true,
         "options" => [
-	        "mcloud-vision-detect-labels" => [
-		        "title" => "Detect Labels",
-		        "description" => "Detects instances of real-world labels within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.",
-		        "display-order" => 0,
-		        "type" => "checkbox",
-		        "default" => false
-	        ],
-	        "mcloud-vision-detect-labels-tax" => [
-		        "title" => "Detect Labels Taxonomy",
-		        "description" => "The taxonomy to apply the detected labels to.",
-		        "display-order" => 1,
-		        "type" => "select",
-		        "default" => "post_tag",
-		        "options" => 'attachmentTaxonomies'
-	        ],
-	        "mcloud-vision-detect-labels-confidence" => [
-		        "title" => "Detect Labels Confidence",
-		        "description" => "The minimum confidence (0-100) required to apply the returned label as tags.  Default is 70.",
-		        "display-order" => 2,
-		        "type" => "number",
-		        "default" => 70
-	        ],
-	        "mcloud-vision-detect-moderation-labels" => [
-		        "title" => "Detect Moderation Labels",
-		        "description" => "Detects explicit or suggestive adult content in a specified JPEG or PNG format image. Use this to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.",
-		        "display-order" => 3,
-		        "type" => "checkbox",
-		        "default" => false
-	        ],
-	        "mcloud-vision-detect-moderation-labels-tax" => [
-		        "title" => "Detect Moderation Labels Taxonomy",
-		        "description" => "The taxonomy to apply the detected moderation labels to.",
-		        "display-order" => 4,
-		        "type" => "select",
-		        "default" => "post_tag",
-		        "options" => 'attachmentTaxonomies'
-	        ],
-	        "mcloud-vision-detect-moderation-labels-confidence" => [
-		        "title" => "Detect Moderation Labels Confidence",
-		        "description" => "The minimum confidence (0-100) required to apply the returned label as tags.  Default is 70.",
-		        "display-order" => 5,
-		        "type" => "number",
-		        "default" => 70
-	        ],
-	        "mcloud-vision-detect-celebrity" => [
+            "mcloud-vision-detect-labels" => [
+                "title" => "Detect Labels",
+                "description" => "Detects instances of real-world labels within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.",
+                "display-order" => 0,
+                "type" => "checkbox",
+                "default" => false
+            ],
+            "mcloud-vision-detect-labels-tax" => [
+                "title" => "Detect Labels Taxonomy",
+                "description" => "The taxonomy to apply the detected labels to.",
+                "display-order" => 1,
+                "type" => "select",
+                "default" => "post_tag",
+                "options" => 'attachmentTaxonomies'
+            ],
+            "mcloud-vision-detect-labels-confidence" => [
+                "title" => "Detect Labels Confidence",
+                "description" => "The minimum confidence (0-100) required to apply the returned label as tags.  Default is 70.",
+                "display-order" => 2,
+                "type" => "number",
+                "default" => 70
+            ],
+            "mcloud-vision-detect-moderation-labels" => [
+                "title" => "Detect Moderation Labels",
+                "description" => "Detects explicit or suggestive adult content in a specified JPEG or PNG format image. Use this to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.",
+                "display-order" => 3,
+                "type" => "checkbox",
+                "default" => false
+            ],
+            "mcloud-vision-detect-moderation-labels-tax" => [
+                "title" => "Detect Moderation Labels Taxonomy",
+                "description" => "The taxonomy to apply the detected moderation labels to.",
+                "display-order" => 4,
+                "type" => "select",
+                "default" => "post_tag",
+                "options" => 'attachmentTaxonomies'
+            ],
+            "mcloud-vision-detect-moderation-labels-confidence" => [
+                "title" => "Detect Moderation Labels Confidence",
+                "description" => "The minimum confidence (0-100) required to apply the returned label as tags.  Default is 70.",
+                "display-order" => 5,
+                "type" => "number",
+                "default" => 70
+            ],
+            "mcloud-vision-detect-celebrity" => [
                 "title" => "Detect Celebrity Faces",
                 "description" => "Detects celebrity faces in the image.  This will also detect non-celebrity faces.  If you use this option, you should not use the <em>Detect Faces<</em> option as either will overwrite the other.  Detected faces will be stored as additional metadata for the image.  If you are using Imgix, you can use this for cropping images centered on a face.",
                 "display-order" => 6,
@@ -130,12 +132,19 @@ return [
                 "default" => "post_tag",
                 "options" => 'attachmentTaxonomies',
             ],
-	        "mcloud-vision-ignored-tags" => [
-		        "title" => "Ignored Tags",
-		        "description" => "Add a comma separated list of tags to ignore when parsing the results from the Rekognition API.",
-		        "display-order" => 9,
-		        "type" => "text-area"
-	        ],
+            "mcloud-vision-ignored-tags" => [
+                "title" => "Ignored Tags",
+                "description" => "Add a comma separated list of tags to ignore when parsing the results from the Rekognition API.",
+                "display-order" => 9,
+                "type" => "text-area"
+            ],
+            "mcloud-vision-detect-dominant-colors" => [
+                "title" => "Detect Dominant Colors",
+                "description" => "Detects the dominant colors in the image and stores them as metadata for the image.",
+                "display-order" => 16,
+                "type" => "checkbox",
+                "default" => false
+            ],
         ]
     ]
 ];

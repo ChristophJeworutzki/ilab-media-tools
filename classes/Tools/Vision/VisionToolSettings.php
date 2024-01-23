@@ -20,7 +20,10 @@ use MediaCloud\Plugin\Tools\MigrationsManager;
 use MediaCloud\Plugin\Tools\ToolSettings;
 use MediaCloud\Plugin\Utilities\Environment;
 
-if (!defined('ABSPATH')) { header('Location: /'); die; }
+if (!defined('ABSPATH')) {
+	header('Location: /');
+	die;
+}
 
 /**
  * Class VisionToolSetting
@@ -41,10 +44,12 @@ if (!defined('ABSPATH')) { header('Location: /'); die; }
  * @property bool $saveTagsToCaption
  * @property bool $saveTagsToDescription
  * @property string $saveTagsPrefix
+ * @property bool $detectDominantColors
  */
+
 class VisionToolSettings extends ToolSettings {
 	/** @var bool|null  */
-    protected $_valid = null;
+	protected $_valid = null;
 
 	/** @var int|null */
 	protected $_detectLabelsConfidence = null;
@@ -68,43 +73,44 @@ class VisionToolSettings extends ToolSettings {
 		"saveTagsToCaption" => ['mcloud-vision-save-tags-to-caption', null, false],
 		"saveTagsToDescription" => ['mcloud-vision-save-tags-to-description', null, false],
 		"saveTagsPrefix" => ['mcloud-vision-tax-prefix', null, ''],
+		"detectDominantColors" => ['mcloud-vision-detect-dominant-colors', null, false],
 	];
 
 	//region Magic
 	public function __get($name) {
-    	if ($name === 'detectLabelsConfidence') {
-    		if ($this->_detectLabelsConfidence === null) {
-			    $this->_detectLabelsConfidence = (int)Environment::Option('mcloud-vision-detect-labels-confidence', null, 50);
-			    $this->_detectLabelsConfidence = min(100, max(0, $this->_detectLabelsConfidence));
-		    }
+		if ($name === 'detectLabelsConfidence') {
+			if ($this->_detectLabelsConfidence === null) {
+				$this->_detectLabelsConfidence = (int)Environment::Option('mcloud-vision-detect-labels-confidence', null, 50);
+				$this->_detectLabelsConfidence = min(100, max(0, $this->_detectLabelsConfidence));
+			}
 
-    		return $this->_detectLabelsConfidence;
-	    }
+			return $this->_detectLabelsConfidence;
+		}
 
-    	if ($name === 'detectExplicitConfidence') {
-    		if ($this->_detectExplicitConfidence === null) {
-			    $this->_detectExplicitConfidence = (int)Environment::Option('mcloud-vision-detect-moderation-labels-confidence', null, 50);
-			    $this->_detectExplicitConfidence = min(100, max(0, $this->_detectExplicitConfidence));
-		    }
+		if ($name === 'detectExplicitConfidence') {
+			if ($this->_detectExplicitConfidence === null) {
+				$this->_detectExplicitConfidence = (int)Environment::Option('mcloud-vision-detect-moderation-labels-confidence', null, 50);
+				$this->_detectExplicitConfidence = min(100, max(0, $this->_detectExplicitConfidence));
+			}
 
-		    return $this->_detectExplicitConfidence;
-	    }
+			return $this->_detectExplicitConfidence;
+		}
 
-    	if ($name === 'ignoredTags') {
-    		if ($this->_ignoredTags === null) {
-    			$this->_ignoredTags = [];
+		if ($name === 'ignoredTags') {
+			if ($this->_ignoredTags === null) {
+				$this->_ignoredTags = [];
 
-			    $toIgnoreString = Environment::Option('mcloud-vision-ignored-tags', '');
-			    if (!empty($toIgnoreString)) {
-				    $toIgnore = explode(',', $toIgnoreString);
-				    foreach($toIgnore as $ignoredTag) {
-					    $this->ignoredTags[] = strtolower(trim($ignoredTag));
-				    }
-			    }
-		    }
+				$toIgnoreString = Environment::Option('mcloud-vision-ignored-tags', '');
+				if (!empty($toIgnoreString)) {
+					$toIgnore = explode(',', $toIgnoreString);
+					foreach ($toIgnore as $ignoredTag) {
+						$this->ignoredTags[] = strtolower(trim($ignoredTag));
+					}
+				}
+			}
 
-    		return $this->_ignoredTags;
-	    }
+			return $this->_ignoredTags;
+		}
 
 		return parent::__get($name);
 	}
@@ -135,8 +141,8 @@ class VisionToolSettings extends ToolSettings {
 				$taxes[] = $this->detectCelebritiesTax;
 			}
 
-			add_action( 'init' , function() use ($taxes) {
-				foreach($taxes as $tax) {
+			add_action('init', function () use ($taxes) {
+				foreach ($taxes as $tax) {
 					if (in_array($tax, ['post_tag', 'category'])) {
 						register_taxonomy_for_object_type($tax, 'attachment');
 					}
