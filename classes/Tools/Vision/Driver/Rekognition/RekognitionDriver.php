@@ -215,7 +215,12 @@ class RekognitionDriver extends VisionDriver {
                             'Name' => $s3['key']
                         ]
                     ],
-                    'MinConfidence' => $this->settings->detectLabelsConfidence
+                    'MinConfidence' => $this->settings->detectLabelsConfidence,
+                    'Settings' => [
+                        'ImageProperties' => [
+                            'MaxDominantColors' => 5
+                        ],
+                    ]
                 ]);
 
                 $labels = $result->get('Labels');
