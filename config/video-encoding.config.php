@@ -10,11 +10,14 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
-if (!defined('ABSPATH')) { header('Location: /'); die; }
+if (!defined('ABSPATH')) {
+	header('Location: /');
+	die;
+}
 
 return [
-    "id" => "video-encoding",
-    "name" => "Video Encoding",
+	"id" => "video-encoding",
+	"name" => "Video Encoding",
 	"description" => "Video encoding, hosting and live streaming via <a href='https://mux.com/' target='_blank'>Mux</a>.",
 	"class" => "MediaCloud\\Plugin\\Tools\\Video\\Driver\\Mux\\MuxTool",
 	"dependencies" => [
@@ -80,9 +83,16 @@ return [
 					"media-cloud-mux-mp4-support" => [
 						"title" => "MP4 Support",
 						"description" => "Enabling MP4 Support on Mux Assets",
-						"type" => "checkbox",
-						"default" => false
-					],					
+						"type" => "select",
+						"options" => [
+							"none" => "None",
+							"standard" => "Standard",
+							"capped-1080p" => "Capped 1080p",
+							"audio-only" => "Audio Only",
+							"audio-only,capped-1080p" => "Audio Only, Capped 1080p",
+						],
+						"default" => 'none'
+					],
 					"media-cloud-mux-normalize-audio" => [
 						"title" => "Normalize Audio",
 						"description" => "Normalize the audio track loudness level.",
