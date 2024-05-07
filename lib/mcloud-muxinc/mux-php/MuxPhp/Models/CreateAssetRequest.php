@@ -16,8 +16,7 @@ use \MediaCloud\Vendor\MuxPhp\ObjectSerializer;
  * @category Class
  * @package  MuxPhp
  */
-class CreateAssetRequest implements ModelInterface, ArrayAccess
-{
+class CreateAssetRequest implements ModelInterface, ArrayAccess {
     const DISCRIMINATOR = null;
 
     /**
@@ -64,8 +63,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
-    {
+    public static function openAPITypes() {
         return self::$openAPITypes;
     }
 
@@ -74,8 +72,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
-    {
+    public static function openAPIFormats() {
         return self::$openAPIFormats;
     }
 
@@ -134,8 +131,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
-    {
+    public static function attributeMap() {
         return self::$attributeMap;
     }
 
@@ -144,8 +140,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
-    {
+    public static function setters() {
         return self::$setters;
     }
 
@@ -154,8 +149,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
-    {
+    public static function getters() {
         return self::$getters;
     }
 
@@ -164,44 +158,43 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
-    {
+    public function getModelName() {
         return self::$openAPIModelName;
     }
 
     const MP4_SUPPORT_NONE = 'none';
     const MP4_SUPPORT_STANDARD = 'standard';
+    const MP4_SUPPORT_CAPPED_1080P = 'capped-1080p';
     const MASTER_ACCESS_NONE = 'none';
     const MASTER_ACCESS_TEMPORARY = 'temporary';
-    
 
-    
+
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getMp4SupportAllowableValues()
-    {
+    public function getMp4SupportAllowableValues() {
         return [
             self::MP4_SUPPORT_NONE,
             self::MP4_SUPPORT_STANDARD,
+            self::MP4_SUPPORT_CAPPED_1080P,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getMasterAccessAllowableValues()
-    {
+    public function getMasterAccessAllowableValues() {
         return [
             self::MASTER_ACCESS_NONE,
             self::MASTER_ACCESS_TEMPORARY,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -216,8 +209,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
-    {
+    public function __construct(array $data = null) {
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['playback_policy'] = isset($data['playback_policy']) ? $data['playback_policy'] : null;
         $this->container['per_title_encode'] = isset($data['per_title_encode']) ? $data['per_title_encode'] : null;
@@ -233,8 +225,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
-    {
+    public function listInvalidProperties() {
         $invalidProperties = [];
 
         $allowedValues = $this->getMp4SupportAllowableValues();
@@ -262,8 +253,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
-    {
+    public function valid() {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -273,8 +263,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\InputSettings[]|null
      */
-    public function getInput()
-    {
+    public function getInput() {
         return $this->container['input'];
     }
 
@@ -285,8 +274,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setInput($input)
-    {
+    public function setInput($input) {
         $this->container['input'] = $input;
 
         return $this;
@@ -297,8 +285,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\PlaybackPolicy[]|null
      */
-    public function getPlaybackPolicy()
-    {
+    public function getPlaybackPolicy() {
         return $this->container['playback_policy'];
     }
 
@@ -309,8 +296,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPlaybackPolicy($playback_policy)
-    {
+    public function setPlaybackPolicy($playback_policy) {
         $this->container['playback_policy'] = $playback_policy;
 
         return $this;
@@ -321,8 +307,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getPerTitleEncode()
-    {
+    public function getPerTitleEncode() {
         return $this->container['per_title_encode'];
     }
 
@@ -333,8 +318,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPerTitleEncode($per_title_encode)
-    {
+    public function setPerTitleEncode($per_title_encode) {
         $this->container['per_title_encode'] = $per_title_encode;
 
         return $this;
@@ -345,8 +329,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getPassthrough()
-    {
+    public function getPassthrough() {
         return $this->container['passthrough'];
     }
 
@@ -357,8 +340,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPassthrough($passthrough)
-    {
+    public function setPassthrough($passthrough) {
         $this->container['passthrough'] = $passthrough;
 
         return $this;
@@ -369,8 +351,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMp4Support()
-    {
+    public function getMp4Support() {
         return $this->container['mp4_support'];
     }
 
@@ -381,8 +362,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMp4Support($mp4_support)
-    {
+    public function setMp4Support($mp4_support) {
         $allowedValues = $this->getMp4SupportAllowableValues();
         if (!is_null($mp4_support) && !in_array($mp4_support, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -402,8 +382,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getNormalizeAudio()
-    {
+    public function getNormalizeAudio() {
         return $this->container['normalize_audio'];
     }
 
@@ -414,8 +393,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setNormalizeAudio($normalize_audio)
-    {
+    public function setNormalizeAudio($normalize_audio) {
         $this->container['normalize_audio'] = $normalize_audio;
 
         return $this;
@@ -426,8 +404,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMasterAccess()
-    {
+    public function getMasterAccess() {
         return $this->container['master_access'];
     }
 
@@ -438,8 +415,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMasterAccess($master_access)
-    {
+    public function setMasterAccess($master_access) {
         $allowedValues = $this->getMasterAccessAllowableValues();
         if (!is_null($master_access) && !in_array($master_access, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -459,8 +435,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getTest()
-    {
+    public function getTest() {
         return $this->container['test'];
     }
 
@@ -471,8 +446,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setTest($test)
-    {
+    public function setTest($test) {
         $this->container['test'] = $test;
 
         return $this;
@@ -484,9 +458,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-	#[\ReturnTypeWillChange]
-    public function offsetExists($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset) {
         return isset($this->container[$offset]);
     }
 
@@ -497,9 +470,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-	#[\ReturnTypeWillChange]
-    public function offsetGet($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset) {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
@@ -511,9 +483,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-	#[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetSet($offset, $value) {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -528,9 +499,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-	#[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($offset) {
         unset($this->container[$offset]);
     }
 
@@ -539,13 +509,10 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }
 }
-
-

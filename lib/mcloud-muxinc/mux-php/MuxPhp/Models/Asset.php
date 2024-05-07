@@ -16,8 +16,7 @@ use \MediaCloud\Vendor\MuxPhp\ObjectSerializer;
  * @category Class
  * @package  MuxPhp
  */
-class Asset implements ModelInterface, ArrayAccess
-{
+class Asset implements ModelInterface, ArrayAccess {
     const DISCRIMINATOR = null;
 
     /**
@@ -90,8 +89,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
-    {
+    public static function openAPITypes() {
         return self::$openAPITypes;
     }
 
@@ -100,8 +98,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
-    {
+    public static function openAPIFormats() {
         return self::$openAPIFormats;
     }
 
@@ -199,8 +196,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
-    {
+    public static function attributeMap() {
         return self::$attributeMap;
     }
 
@@ -209,8 +205,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
-    {
+    public static function setters() {
         return self::$setters;
     }
 
@@ -219,8 +214,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
-    {
+    public static function getters() {
         return self::$getters;
     }
 
@@ -229,44 +223,43 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
-    {
+    public function getModelName() {
         return self::$openAPIModelName;
     }
 
     const MASTER_ACCESS_TEMPORARY = 'temporary';
     const MASTER_ACCESS_NONE = 'none';
     const MP4_SUPPORT_STANDARD = 'standard';
+    const MP4_SUPPORT_CAPPED_1080P = 'capped-1080p';
     const MP4_SUPPORT_NONE = 'none';
-    
 
-    
+
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getMasterAccessAllowableValues()
-    {
+    public function getMasterAccessAllowableValues() {
         return [
             self::MASTER_ACCESS_TEMPORARY,
             self::MASTER_ACCESS_NONE,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getMp4SupportAllowableValues()
-    {
+    public function getMp4SupportAllowableValues() {
         return [
             self::MP4_SUPPORT_STANDARD,
+            self::MP4_SUPPORT_CAPPED_1080P,
             self::MP4_SUPPORT_NONE,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -281,8 +274,7 @@ class Asset implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
-    {
+    public function __construct(array $data = null) {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['deleted_at'] = isset($data['deleted_at']) ? $data['deleted_at'] : null;
@@ -311,8 +303,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
-    {
+    public function listInvalidProperties() {
         $invalidProperties = [];
 
         $allowedValues = $this->getMasterAccessAllowableValues();
@@ -340,8 +331,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
-    {
+    public function valid() {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -351,8 +341,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->container['id'];
     }
 
@@ -363,8 +352,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setId($id)
-    {
+    public function setId($id) {
         $this->container['id'] = $id;
 
         return $this;
@@ -375,8 +363,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->container['created_at'];
     }
 
@@ -387,8 +374,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
-    {
+    public function setCreatedAt($created_at) {
         $this->container['created_at'] = $created_at;
 
         return $this;
@@ -399,8 +385,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getDeletedAt()
-    {
+    public function getDeletedAt() {
         return $this->container['deleted_at'];
     }
 
@@ -411,8 +396,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setDeletedAt($deleted_at)
-    {
+    public function setDeletedAt($deleted_at) {
         $this->container['deleted_at'] = $deleted_at;
 
         return $this;
@@ -423,8 +407,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getStatus()
-    {
+    public function getStatus() {
         return $this->container['status'];
     }
 
@@ -435,8 +418,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setStatus($status)
-    {
+    public function setStatus($status) {
         $this->container['status'] = $status;
 
         return $this;
@@ -447,8 +429,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return double|null
      */
-    public function getDuration()
-    {
+    public function getDuration() {
         return $this->container['duration'];
     }
 
@@ -459,8 +440,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setDuration($duration)
-    {
+    public function setDuration($duration) {
         $this->container['duration'] = $duration;
 
         return $this;
@@ -471,8 +451,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMaxStoredResolution()
-    {
+    public function getMaxStoredResolution() {
         return $this->container['max_stored_resolution'];
     }
 
@@ -483,8 +462,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMaxStoredResolution($max_stored_resolution)
-    {
+    public function setMaxStoredResolution($max_stored_resolution) {
         $this->container['max_stored_resolution'] = $max_stored_resolution;
 
         return $this;
@@ -495,8 +473,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return double|null
      */
-    public function getMaxStoredFrameRate()
-    {
+    public function getMaxStoredFrameRate() {
         return $this->container['max_stored_frame_rate'];
     }
 
@@ -507,8 +484,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMaxStoredFrameRate($max_stored_frame_rate)
-    {
+    public function setMaxStoredFrameRate($max_stored_frame_rate) {
         $this->container['max_stored_frame_rate'] = $max_stored_frame_rate;
 
         return $this;
@@ -519,8 +495,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getAspectRatio()
-    {
+    public function getAspectRatio() {
         return $this->container['aspect_ratio'];
     }
 
@@ -531,8 +506,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setAspectRatio($aspect_ratio)
-    {
+    public function setAspectRatio($aspect_ratio) {
         $this->container['aspect_ratio'] = $aspect_ratio;
 
         return $this;
@@ -543,8 +517,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\PlaybackID[]|null
      */
-    public function getPlaybackIds()
-    {
+    public function getPlaybackIds() {
         return $this->container['playback_ids'];
     }
 
@@ -555,8 +528,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPlaybackIds($playback_ids)
-    {
+    public function setPlaybackIds($playback_ids) {
         $this->container['playback_ids'] = $playback_ids;
 
         return $this;
@@ -567,8 +539,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\Track[]|null
      */
-    public function getTracks()
-    {
+    public function getTracks() {
         return $this->container['tracks'];
     }
 
@@ -579,8 +550,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setTracks($tracks)
-    {
+    public function setTracks($tracks) {
         $this->container['tracks'] = $tracks;
 
         return $this;
@@ -591,8 +561,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\AssetErrors|null
      */
-    public function getErrors()
-    {
+    public function getErrors() {
         return $this->container['errors'];
     }
 
@@ -603,8 +572,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setErrors($errors)
-    {
+    public function setErrors($errors) {
         $this->container['errors'] = $errors;
 
         return $this;
@@ -615,8 +583,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getPerTitleEncode()
-    {
+    public function getPerTitleEncode() {
         return $this->container['per_title_encode'];
     }
 
@@ -627,8 +594,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPerTitleEncode($per_title_encode)
-    {
+    public function setPerTitleEncode($per_title_encode) {
         $this->container['per_title_encode'] = $per_title_encode;
 
         return $this;
@@ -639,8 +605,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getIsLive()
-    {
+    public function getIsLive() {
         return $this->container['is_live'];
     }
 
@@ -651,8 +616,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setIsLive($is_live)
-    {
+    public function setIsLive($is_live) {
         $this->container['is_live'] = $is_live;
 
         return $this;
@@ -663,8 +627,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getPassthrough()
-    {
+    public function getPassthrough() {
         return $this->container['passthrough'];
     }
 
@@ -675,8 +638,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setPassthrough($passthrough)
-    {
+    public function setPassthrough($passthrough) {
         $this->container['passthrough'] = $passthrough;
 
         return $this;
@@ -687,8 +649,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getLiveStreamId()
-    {
+    public function getLiveStreamId() {
         return $this->container['live_stream_id'];
     }
 
@@ -699,8 +660,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setLiveStreamId($live_stream_id)
-    {
+    public function setLiveStreamId($live_stream_id) {
         $this->container['live_stream_id'] = $live_stream_id;
 
         return $this;
@@ -711,8 +671,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\AssetMaster|null
      */
-    public function getMaster()
-    {
+    public function getMaster() {
         return $this->container['master'];
     }
 
@@ -723,8 +682,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMaster($master)
-    {
+    public function setMaster($master) {
         $this->container['master'] = $master;
 
         return $this;
@@ -735,8 +693,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMasterAccess()
-    {
+    public function getMasterAccess() {
         return $this->container['master_access'];
     }
 
@@ -747,8 +704,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMasterAccess($master_access)
-    {
+    public function setMasterAccess($master_access) {
         $allowedValues = $this->getMasterAccessAllowableValues();
         if (!is_null($master_access) && !in_array($master_access, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -768,8 +724,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMp4Support()
-    {
+    public function getMp4Support() {
         return $this->container['mp4_support'];
     }
 
@@ -780,8 +735,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMp4Support($mp4_support)
-    {
+    public function setMp4Support($mp4_support) {
         $allowedValues = $this->getMp4SupportAllowableValues();
         if (!is_null($mp4_support) && !in_array($mp4_support, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -801,8 +755,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getNormalizeAudio()
-    {
+    public function getNormalizeAudio() {
         return $this->container['normalize_audio'];
     }
 
@@ -813,8 +766,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setNormalizeAudio($normalize_audio)
-    {
+    public function setNormalizeAudio($normalize_audio) {
         $this->container['normalize_audio'] = $normalize_audio;
 
         return $this;
@@ -825,8 +777,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return \MediaCloud\Vendor\MuxPhp\Models\AssetStaticRenditions|null
      */
-    public function getStaticRenditions()
-    {
+    public function getStaticRenditions() {
         return $this->container['static_renditions'];
     }
 
@@ -837,8 +788,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setStaticRenditions($static_renditions)
-    {
+    public function setStaticRenditions($static_renditions) {
         $this->container['static_renditions'] = $static_renditions;
 
         return $this;
@@ -849,8 +799,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return bool|null
      */
-    public function getTest()
-    {
+    public function getTest() {
         return $this->container['test'];
     }
 
@@ -861,8 +810,7 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setTest($test)
-    {
+    public function setTest($test) {
         $this->container['test'] = $test;
 
         return $this;
@@ -874,9 +822,8 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-	#[\ReturnTypeWillChange]
-	public function offsetExists($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset) {
         return isset($this->container[$offset]);
     }
 
@@ -887,9 +834,8 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-	#[\ReturnTypeWillChange]
-    public function offsetGet($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetGet($offset) {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
@@ -901,9 +847,8 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-	#[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetSet($offset, $value) {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -918,9 +863,8 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-	#[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
-    {
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($offset) {
         unset($this->container[$offset]);
     }
 
@@ -929,13 +873,10 @@ class Asset implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }
 }
-
-

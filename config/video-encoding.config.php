@@ -88,8 +88,6 @@ return [
 							"none" => "None",
 							"standard" => "Standard",
 							"capped-1080p" => "Capped 1080p",
-							"audio-only" => "Audio Only",
-							"audio-only,capped-1080p" => "Audio Only, Capped 1080p",
 						],
 						"default" => 'none'
 					],

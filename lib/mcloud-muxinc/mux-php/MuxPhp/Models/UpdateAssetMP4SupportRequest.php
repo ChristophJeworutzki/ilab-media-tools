@@ -16,8 +16,7 @@ use \MediaCloud\Vendor\MuxPhp\ObjectSerializer;
  * @category Class
  * @package  MuxPhp
  */
-class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
-{
+class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess {
     const DISCRIMINATOR = null;
 
     /**
@@ -50,8 +49,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
-    {
+    public static function openAPITypes() {
         return self::$openAPITypes;
     }
 
@@ -60,8 +58,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
-    {
+    public static function openAPIFormats() {
         return self::$openAPIFormats;
     }
 
@@ -99,8 +96,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
-    {
+    public static function attributeMap() {
         return self::$attributeMap;
     }
 
@@ -109,8 +105,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
-    {
+    public static function setters() {
         return self::$setters;
     }
 
@@ -119,8 +114,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
-    {
+    public static function getters() {
         return self::$getters;
     }
 
@@ -129,29 +123,29 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
-    {
+    public function getModelName() {
         return self::$openAPIModelName;
     }
 
     const MP4_SUPPORT_STANDARD = 'standard';
+    const MP4_SUPPORT_CAPPED_1080P = 'capped-1080p';
     const MP4_SUPPORT_NONE = 'none';
-    
 
-    
+
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getMp4SupportAllowableValues()
-    {
+    public function getMp4SupportAllowableValues() {
         return [
             self::MP4_SUPPORT_STANDARD,
             self::MP4_SUPPORT_NONE,
+            self::MP4_SUPPORT_CAPPED_1080P,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -166,8 +160,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
-    {
+    public function __construct(array $data = null) {
         $this->container['mp4_support'] = isset($data['mp4_support']) ? $data['mp4_support'] : null;
     }
 
@@ -176,8 +169,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
-    {
+    public function listInvalidProperties() {
         $invalidProperties = [];
 
         $allowedValues = $this->getMp4SupportAllowableValues();
@@ -197,8 +189,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
-    {
+    public function valid() {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -208,8 +199,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getMp4Support()
-    {
+    public function getMp4Support() {
         return $this->container['mp4_support'];
     }
 
@@ -220,8 +210,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return $this
      */
-    public function setMp4Support($mp4_support)
-    {
+    public function setMp4Support($mp4_support) {
         $allowedValues = $this->getMp4SupportAllowableValues();
         if (!is_null($mp4_support) && !in_array($mp4_support, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -242,8 +231,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
-    {
+    public function offsetExists($offset) {
         return isset($this->container[$offset]);
     }
 
@@ -254,8 +242,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
-    {
+    public function offsetGet($offset) {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
@@ -267,8 +254,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
-    {
+    public function offsetSet($offset, $value) {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -283,8 +269,7 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
-    {
+    public function offsetUnset($offset) {
         unset($this->container[$offset]);
     }
 
@@ -293,13 +278,10 @@ class UpdateAssetMP4SupportRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }
 }
-
-
