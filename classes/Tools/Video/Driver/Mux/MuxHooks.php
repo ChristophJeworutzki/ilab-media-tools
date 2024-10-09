@@ -24,7 +24,6 @@ use  MediaCloud\Vendor\MuxPhp\Models\CreateAssetRequest;
 use  MediaCloud\Vendor\MuxPhp\Models\InputSettings;
 use  MediaCloud\Vendor\MuxPhp\Models\PlaybackPolicy;
 use function  MediaCloud\Plugin\Utilities\arrayPath;
-use function  MediaCloud\Plugin\Utilities\gen_uuid;
 use function  MediaCloud\Plugin\Utilities\postIdExists;
 
 class MuxHooks {
@@ -304,6 +303,8 @@ class MuxHooks {
             __LINE__
         );
         require_once ABSPATH . 'wp-admin/includes/image.php';
+        // Disable big image threshold to prevent image resizing
+        add_filter('big_image_size_threshold', '__return_false');
         $thumbAttachmentMeta = wp_generate_attachment_metadata($thumbId, $filePath);
         update_post_meta($thumbId, '_wp_attached_file', $thumbAttachmentMeta['file']);
         update_post_meta($asset->attachmentId, '_thumbnail_id', $thumbId);
@@ -614,6 +615,7 @@ class MuxHooks {
             'normalize_audio'  => (!empty($this->settings->normalizeAudio) ? true : false),
             'per_title_encode' => (!empty($this->settings->perTitleEncoding) ? true : false),
             'test'             => (!empty($this->settings->testMode) ? true : false),
+            'max_resolution_tier' => '2160p',
         ]);
         try {
             $result = MuxAPI::assetAPI()->createAsset($req);

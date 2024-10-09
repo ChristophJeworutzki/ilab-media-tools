@@ -3210,10 +3210,11 @@ TEMPLATE;
      * @param $readOnly
      */
     private function doRenderStorageInfoMeta($postId = null, $readOnly = false) {
-        global  $post;
-        if (empty($postId)) {
+        global $post;
+        if (empty($postId) && isset($post) && is_object($post)) {
             $postId = $post->ID;
         }
+
         $meta = wp_get_attachment_metadata($postId);
         $blogSwitched = false;
 
@@ -3781,12 +3782,14 @@ TEMPLATE;
             'sizes'      => [],
         ];
         $builtInSizes = [];
-        foreach ([
-            'thumbnail',
-            'medium',
-            'medium_large',
-            'large'
-        ] as $size) {
+        foreach (
+            [
+                'thumbnail',
+                'medium',
+                'medium_large',
+                'large'
+            ] as $size
+        ) {
             $builtInSizes[$size] = [
                 'width'  => get_option("{$size}_size_w"),
                 'height' => get_option("{$size}_size_h"),
@@ -3982,12 +3985,14 @@ TEMPLATE;
         $meta = wp_get_attachment_metadata($postId, true);
         $meta['s3'] = $s3Info;
         $builtInSizes = [];
-        foreach ([
-            'thumbnail',
-            'medium',
-            'medium_large',
-            'large'
-        ] as $size) {
+        foreach (
+            [
+                'thumbnail',
+                'medium',
+                'medium_large',
+                'large'
+            ] as $size
+        ) {
             $builtInSizes[$size] = [
                 'width'  => get_option("{$size}_size_w"),
                 'height' => get_option("{$size}_size_h"),
@@ -4503,12 +4508,14 @@ Optimizer;
 
         if (count($indexedThumbs) > 0) {
             $builtInSizes = [];
-            foreach ([
-                'thumbnail',
-                'medium',
-                'medium_large',
-                'large'
-            ] as $size) {
+            foreach (
+                [
+                    'thumbnail',
+                    'medium',
+                    'medium_large',
+                    'large'
+                ] as $size
+            ) {
                 $builtInSizes[$size] = [
                     'width'  => get_option("{$size}_size_w"),
                     'height' => get_option("{$size}_size_h"),
