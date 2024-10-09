@@ -40,7 +40,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'normalize_audio' => 'bool',
         'master_access' => 'string',
         'test' => 'bool',
-        'max_resolution_tier' => 'string'
     ];
 
     /**
@@ -57,7 +56,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'normalize_audio' => 'boolean',
         'master_access' => null,
         'test' => 'boolean',
-        'max_resolution_tier' => null
     ];
 
     /**
@@ -93,7 +91,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'normalize_audio' => 'normalize_audio',
         'master_access' => 'master_access',
         'test' => 'test',
-        'max_resolution_tier' => 'max_resolution_tier'
     ];
 
     /**
@@ -110,7 +107,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'normalize_audio' => 'setNormalizeAudio',
         'master_access' => 'setMasterAccess',
         'test' => 'setTest',
-        'max_resolution_tier' => 'setMaxResolutionTier',
     ];
 
     /**
@@ -127,7 +123,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'normalize_audio' => 'getNormalizeAudio',
         'master_access' => 'getMasterAccess',
         'test' => 'getTest',
-        'max_resolution_tier' => 'getMaxResolutionTier',
     ];
 
     /**
@@ -223,7 +218,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         $this->container['normalize_audio'] = isset($data['normalize_audio']) ? $data['normalize_audio'] : false;
         $this->container['master_access'] = isset($data['master_access']) ? $data['master_access'] : null;
         $this->container['test'] = isset($data['test']) ? $data['test'] : null;
-        $this->container['max_resolution_tier'] = isset($data['max_resolution_tier']) ? $data['max_resolution_tier'] : null;
     }
 
     /**
@@ -454,28 +448,6 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
      */
     public function setTest($test) {
         $this->container['test'] = $test;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_resolution_tier
-     * 
-     * @return string|null
-     */
-    public function getMaxResolutionTier() {
-        return $this->container['max_resolution_tier'];
-    }
-
-    /**
-     * Sets max_resolution_tier
-     * 
-     * @param string|null $max_resolution_tier max_resolution_tier
-     * 
-     * @return $this
-     */
-    public function setMaxResolutionTier($max_resolution_tier) {
-        $this->container['max_resolution_tier'] = $max_resolution_tier;
 
         return $this;
     }

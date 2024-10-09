@@ -610,11 +610,10 @@ class MuxHooks {
         $req = new CreateAssetRequest([
             'input'            => $input,
             'playback_policy'  => $policy,
-            'test'             => (!empty($this->settings->testMode) ? true : false),
             'mp4_support'      => (!empty($this->settings->mp4Support) ? $this->settings->mp4Support : 'none'),
             'normalize_audio'  => (!empty($this->settings->normalizeAudio) ? true : false),
             'per_title_encode' => (!empty($this->settings->perTitleEncoding) ? true : false),
-            'max_resolution_tier' => '2160p',
+            'test'             => (!empty($this->settings->testMode) ? true : false),
         ]);
         try {
             $result = MuxAPI::assetAPI()->createAsset($req);
