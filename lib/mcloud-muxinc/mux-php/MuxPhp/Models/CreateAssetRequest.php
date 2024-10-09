@@ -39,7 +39,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'mp4_support' => 'string',
         'normalize_audio' => 'bool',
         'master_access' => 'string',
-        'test' => 'bool'
+        'test' => 'bool',
+        'max_resolution_tier' => 'string'
     ];
 
     /**
@@ -55,7 +56,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'mp4_support' => null,
         'normalize_audio' => 'boolean',
         'master_access' => null,
-        'test' => 'boolean'
+        'test' => 'boolean',
+        'max_resolution_tier' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'mp4_support' => 'mp4_support',
         'normalize_audio' => 'normalize_audio',
         'master_access' => 'master_access',
-        'test' => 'test'
+        'test' => 'test',
+        'max_resolution_tier' => 'max_resolution_tier'
     ];
 
     /**
@@ -106,7 +109,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'mp4_support' => 'setMp4Support',
         'normalize_audio' => 'setNormalizeAudio',
         'master_access' => 'setMasterAccess',
-        'test' => 'setTest'
+        'test' => 'setTest',
+        'max_resolution_tier' => 'setMaxResolutionTier',
     ];
 
     /**
@@ -122,7 +126,8 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         'mp4_support' => 'getMp4Support',
         'normalize_audio' => 'getNormalizeAudio',
         'master_access' => 'getMasterAccess',
-        'test' => 'getTest'
+        'test' => 'getTest',
+        'max_resolution_tier' => 'getMaxResolutionTier',
     ];
 
     /**
@@ -218,6 +223,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
         $this->container['normalize_audio'] = isset($data['normalize_audio']) ? $data['normalize_audio'] : false;
         $this->container['master_access'] = isset($data['master_access']) ? $data['master_access'] : null;
         $this->container['test'] = isset($data['test']) ? $data['test'] : null;
+        $this->container['max_resolution_tier'] = isset($data['max_resolution_tier']) ? $data['max_resolution_tier'] : null;
     }
 
     /**
@@ -451,6 +457,29 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
 
         return $this;
     }
+
+    /**
+     * Gets max_resolution_tier
+     * 
+     * @return string|null
+     */
+    public function getMaxResolutionTier() {
+        return $this->container['max_resolution_tier'];
+    }
+
+    /**
+     * Sets max_resolution_tier
+     * 
+     * @param string|null $max_resolution_tier max_resolution_tier
+     * 
+     * @return $this
+     */
+    public function setMaxResolutionTier($max_resolution_tier) {
+        $this->container['max_resolution_tier'] = $max_resolution_tier;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -459,7 +488,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
      * @return boolean
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset) {
+    public function offsetExists($offset): bool {
         return isset($this->container[$offset]);
     }
 
@@ -471,7 +500,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
      * @return mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset) {
+    public function offsetGet($offset): mixed {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
@@ -484,7 +513,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value): void {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -500,7 +529,7 @@ class CreateAssetRequest implements ModelInterface, ArrayAccess {
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset): void {
         unset($this->container[$offset]);
     }
 
